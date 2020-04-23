@@ -4,7 +4,6 @@ const RESOURCES = {
   "index.html": "dc5de0cd922edb95b8055e014ec7924c",
 "/": "dc5de0cd922edb95b8055e014ec7924c",
 "images/01.jpg": "e5b27b172896d81efb1d5840b74b3b1f",
-"images/03.jpg": "92316bc96cba9c246186558ddebe9f63",
 "images/02.jpg": "3a087beeba149d64187ef150b8aeb388",
 "main.dart.js": "d0335054df59d89144c3366664034d58",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
@@ -17,6 +16,9 @@ const RESOURCES = {
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
 "assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16"
 };
+const RESOURCES2 = {
+"images/03.jpg": "92316bc96cba9c246186558ddebe9f63"
+};
 
 self.addEventListener('activate', function (event) {
   event.waitUntil(
@@ -26,7 +28,9 @@ self.addEventListener('activate', function (event) {
       return caches.open(CACHE_NAME);
     }).then(function (cache) {
       //console.log("sw adding RESOURCES..."); //it will throw exception "Uncaught (in promise) TypeError: Request failed".
-      return cache.addAll(Object.keys(RESOURCES));
+      cache.addAll(Object.keys(RESOURCES));
+      //console.log("sw adding RESOURCES2...");
+      return cache.addAll(Object.keys(RESOURCES2));
     })
   );
 });
