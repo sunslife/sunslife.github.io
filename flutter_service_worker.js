@@ -27,9 +27,9 @@ self.addEventListener('activate', function (event) {
     }).then(function (_) {
       return caches.open(CACHE_NAME);
     }).then(function (cache) {
-      //console.log("sw adding RESOURCES..."); //it will throw exception "Uncaught (in promise) TypeError: Request failed".
+      console.log("sw adding RESOURCES..."); //it will throw exception "Uncaught (in promise) TypeError: Request failed".
       cache.addAll(Object.keys(RESOURCES));
-      //console.log("sw adding RESOURCES2...");
+      console.log("sw adding RESOURCES2...");
       return cache.addAll(Object.keys(RESOURCES2));
     })
   );
