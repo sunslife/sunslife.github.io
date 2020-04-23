@@ -25,6 +25,7 @@ self.addEventListener('activate', function (event) {
     }).then(function (_) {
       return caches.open(CACHE_NAME);
     }).then(function (cache) {
+      console.log("sw adding RESOURCES...);
       return cache.addAll(Object.keys(RESOURCES));
     })
   );
@@ -37,6 +38,7 @@ self.addEventListener('fetch', function (event) {
         if (response) {
           return response;
         }
+        console.log("sw fetching" + event.request.toString() );
         return fetch(event.request);
       })
   );
