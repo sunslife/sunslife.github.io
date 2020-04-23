@@ -20,7 +20,7 @@ const RESOURCES2 = {
 "images/03.jpg": "92316bc96cba9c246186558ddebe9f63"
 };
 
-self.importScripts("init.js");
+//self.importScripts("init.js");
 self.addEventListener('activate', function (event) {
   event.waitUntil(
     caches.keys().then(function (cacheName) {
