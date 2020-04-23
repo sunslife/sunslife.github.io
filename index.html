@@ -25,6 +25,7 @@
           loadOk = true;
           console.log("loadOk=" + loadOk);
         navigator.serviceWorker.register('flutter_service_worker.js').then(function(reg){
+            console.log("loadOk=" + loadOk);
           console.log("Service worker has been registered for scope: " + reg.scope);
         });
       });
