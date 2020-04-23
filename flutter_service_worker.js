@@ -20,6 +20,7 @@ const RESOURCES2 = {
 "images/03.jpg": "92316bc96cba9c246186558ddebe9f63"
 };
 
+self.importScripts("init.js");
 self.addEventListener('activate', function (event) {
   event.waitUntil(
     caches.keys().then(function (cacheName) {
@@ -27,6 +28,7 @@ self.addEventListener('activate', function (event) {
     }).then(function (_) {
       return caches.open(CACHE_NAME);
     }).then(function (cache) {
+      console.log("loadOk="+loadOk);
       console.log("sw adding RESOURCES..."); //it will throw exception "Uncaught (in promise) TypeError: Request failed".
       return cache.addAll(Object.keys(RESOURCES).concat(Object.keys(RESOURCES2)));
     })
