@@ -25,7 +25,7 @@ self.addEventListener('activate', function (event) {
     }).then(function (_) {
       return caches.open(CACHE_NAME);
     }).then(function (cache) {
-      console.log("sw adding RESOURCES...);
+      console.log("sw adding RESOURCES...");
       return cache.addAll(Object.keys(RESOURCES));
     })
   );
