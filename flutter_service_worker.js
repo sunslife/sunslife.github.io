@@ -38,7 +38,7 @@ self.addEventListener('fetch', function (event) {
         if (response) {
           return response;
         }
-        console.log("sw fetching" + event.request.toString() );
+        console.log("sw fetching" + event.request.url );
         return fetch(event.request);
       })
   );
